@@ -1,0 +1,12 @@
+hosts: all
+become: true
+
+tasks:
+   - name: delete deployments
+     command: kubectl delete -f /home/ubuntu/Deployments.yml
+   - name: delete service
+     command: kubectl delete -f /home/ubuntu/Service.yml
+   - name: create deployments
+     command: kubectl apply -f /home/ubuntu/Deployments.yml
+   - name: create service
+     command: kubectl apply -f /home/ubuntu/Service.yml
